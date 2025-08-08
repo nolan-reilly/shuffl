@@ -1,0 +1,10 @@
+
+<div>
+  <p class="text-4xl font-bold">Username: <%= @user.username %></p>
+  <p>Email: <%= @user.email %></p>
+
+
+  <!-- Edit User Settings -->
+  <!-- FIXME: Probably shouldn't use current_user or at least make this button not appear unless its the current_users show page -->
+  <%= link_to "Edit User", edit_user_path(current_user), class: "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" %>
+</div>

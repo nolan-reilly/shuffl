@@ -7,12 +7,12 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   # Users this user is following
-  has_many :following, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
-  has_many :followings, through: :following, source: :followed
+  has_many :active_follows, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
+  has_many :followings, through: :active_follows, source: :followed
 
   # Users who follow this user
-  has_many :follower, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
-  has_many :followers, through: :follower, source: :follower
+  has_many :passive_follows, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
+  has_many :followers, through: :passive_follow, source: :follower
 
   # Posts
   has_many :posts
