@@ -1,0 +1,11 @@
+<div class="border-b h-[64px] flex items-center">
+    <div class="mx-auto w-[80%]">
+        <% if user_signed_in? %>
+            <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "bg-black text-white font-bold py-2 px-4 rounded-md" %>
+        <% else %>
+            <%= link_to "Log In", user_session_path, class: "bg-black text-white font-bold py-2 px-4 rounded-md" %>
+            <%= link_to "Sign Up", new_user_session_path, class: "bg-black text-white font-bold py-2 px-4 rounded-md" %>
+        <% end %>
+    </div>
+</div>
+
