@@ -5,9 +5,11 @@
 
 <div class="flex flex-col gap-4">
   <% @posts.each do |post| %>
-    <div>
-      <p><%= post.title %></p>
-      <p><%= post.content %></p>
-    </div>
+    <%= link_to post_path(post) do %>
+      <div>
+        <p><%= post.title %></p>
+        <p><%= post.content %></p>
+      </div>
+    <% end %>
   <% end %>
 </div>
