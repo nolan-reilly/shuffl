@@ -32,9 +32,14 @@ class UsersController < ApplicationController
     @user_to_follow = User.find(params[:id])
 
     current_user.followings << @user_to_follow
+    redirect_to user_path(@user_to_follow), notice: "#{@user_to_follow.username} successfully followed"
   end
 
   def unfollow
+    @user_to_unfollow = User.find(params[:id])
+
+    current_user.followings.delete(@user_to_unfollow)
+    redirect_to user_path(@user_to_unfollow), notice: "#{@user_to_unfollow.username} successfully unfollowed"
   end
 
   private

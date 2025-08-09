@@ -3,8 +3,10 @@
   <p class="text-4xl font-bold">Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
 
-  <!-- TODO: Still working on having ability to follow just working out the kinks right now for following and unfollowing -->
-  <!-- TODO: Add ability for user to follow other users here  -->
-  <%= button_to "Follow", follow_user_path(@user), method: :post %>
-
+  <!-- Links to Follow and Unfollow Users -->
+  <% if current_user.followings.include?(@user) %>
+    <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+  <% else %>
+    <%= button_to "Follow", follow_user_path(@user), method: :post, class: "bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+  <% end %>
 </div>
