@@ -1,10 +1,10 @@
 
-<div>
+<div class="flex flex-col gap-4">
   <p class="text-4xl font-bold">Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
 
+  <!-- TODO: Still working on having ability to follow just working out the kinks right now for following and unfollowing -->
+  <!-- TODO: Add ability for user to follow other users here  -->
+  <%= button_to "Follow", follow_user_path(@user), method: :post %>
 
-  <!-- Edit User Settings -->
-  <!-- FIXME: Probably shouldn't use current_user or at least make this button not appear unless its the current_users show page -->
-  <%= link_to "Edit User", edit_user_path(current_user), class: "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" %>
 </div>

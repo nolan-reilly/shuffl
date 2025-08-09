@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true, uniqueness: true
+  validates :name, presence: true
 
   # Users this user is following
   has_many :active_follows, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
@@ -12,7 +13,7 @@ class User < ApplicationRecord
 
   # Users who follow this user
   has_many :passive_follows, foreign_key: :follower_id, class_name: "Follow", dependent: :destroy
-  has_many :followers, through: :passive_follow, source: :follower
+  has_many :followers, through: :passive_follows, source: :follower
 
   # Posts
   has_many :posts
