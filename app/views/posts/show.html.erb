@@ -1,7 +1,10 @@
 <p class="text-4xl font-bold mb-4">Post#Show</p>
 
 <p class="text-4xl font-bold"><%= @post.title %></p>
+<p>Likes: <%= @post.likes.count %></p>
 <p><%= @post.content %></p>
+
+<%= button_to "Like Post", like_user_post_path(@post), class: "bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"%>
 
 <%= form_with model: [@post, @comment] do |form| %>
     <div>

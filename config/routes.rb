@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [ :index, :show, :edit, :update, :destroy ] do
-    resources :posts, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :posts, only: [ :new, :create, :edit, :update, :destroy ] do
+      member do
+        post "like"
+      end
+    end
 
     member do
       post "follow"
       post "unfollow"
-      post "like"
     end
   end
 

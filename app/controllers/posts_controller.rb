@@ -34,6 +34,17 @@ class PostsController < ApplicationController
   def destroy
   end
 
+  def like
+  @post = Post.find(params[:id])
+
+  if current_user.likes.exists?(post: @post)
+    redirect_to post_path(@post), alert: "You have already liked this post."
+  else
+    current_user.likes.create(post: @post)
+    redirect_to post_path(@post), notice: "Successfully liked post."
+  end
+  end
+
   private
 
   def authorize_user

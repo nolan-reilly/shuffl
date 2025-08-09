@@ -21,7 +21,9 @@ class User < ApplicationRecord
            dependent: :destroy
   has_many :followers, through: :passive_follows, source: :follower
 
-  # Posts
   has_many :posts
   has_many :comments
+
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
 end
