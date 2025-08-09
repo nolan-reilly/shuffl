@@ -2,6 +2,7 @@
 
     <div class="w-[90%] flex justify-end items-center gap-4">
         <% if user_signed_in? %>
+            <%= link_to "Create Post", new_user_post_path(current_user), class: "bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
             <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
             <%= link_to "Profile Page", user_path(current_user), class: "bg-white border-2 hover:bg-black hover:text-white hover:rounded font-bold py-2 px-4 rounded" %>
             <%= link_to "Settings", edit_user_path(current_user), class: "bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
